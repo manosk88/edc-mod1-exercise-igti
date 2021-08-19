@@ -35,6 +35,6 @@ jobs:
         COMMAND_IAC: terraform             # Automate terraform init, apply, etc
       run: |
         cd infrastructure
-        $COMMAND_IAC init        # same as terraform init
+        $COMMAND_IAC init        
         $COMMAND_IAC validate
         $COMMAND_IAC plan
