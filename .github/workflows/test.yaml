@@ -1,12 +1,14 @@
-name: Deploy
+# Outra esteira de deploy que vai ser trigada toda vez que for feita uma PR
+# Don't execute apply
+name: Test on PR
 
 on:
-  push:
+  pull_request:
     branches: [master]                       # Run only in branch master
 
 jobs:
-  deploy:
-    name: Deploy to Datalake
+  test:
+    name: Test infra on PR
     runs-on: ubuntu-latest                   # Choose SO 
 
     steps:
@@ -36,4 +38,3 @@ jobs:
         $COMMAND_IAC init        # same as terraform init
         $COMMAND_IAC validate
         $COMMAND_IAC plan
-        $COMMAND_IAC apply -auto-approve
